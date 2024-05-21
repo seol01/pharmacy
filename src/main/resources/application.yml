@@ -13,10 +13,21 @@ spring:
 spring:
   config:
     activate:
+      on-profile: common
+
+kakao:
+  rest:
+    api:
+      key: ${KAKAO_REST_API_KEY}
+---
+
+spring:
+  config:
+    activate:
       on-profile: local
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3306/pharmacy-recommendation
+    url: jdbc:mariadb://localhost:3306/pharmacy-recommendation?allowPublicKeyRetrieval=true&useSSL=false
     username: ${SPRING_DATASOURCE_USERNAME}
     password: ${SPRING_DATASOURCE_PASSWORD}
   jpa:
@@ -26,6 +37,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MariaDBDialect
+        useSSL: false
   data:
     redis:
       host: localhost

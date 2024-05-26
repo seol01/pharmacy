@@ -4,7 +4,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.testcontainers.containers.GenericContainer;
 import spock.lang.Specification;
 
-@SpringBootTest
+    @SpringBootTest
     public abstract class AbstractIntegrationContainerBaseTest extends Specification {
 
     static final GenericContainer MY_REDIS_CONTAINER;
